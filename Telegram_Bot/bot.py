@@ -2,7 +2,7 @@
 import telebot
 import cv2 as cv
 
-TOKEN = '995082011:AAGEJM6QmRZfAnGkDj0vwpSHWq2jspE1PAw'
+TOKEN = 'TOKEN'
 bot = telebot.TeleBot(TOKEN)
 
 
