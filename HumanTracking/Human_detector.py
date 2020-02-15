@@ -1,7 +1,6 @@
 import numpy as np
 import tensorflow.compat.v1 as tf
 import cv2
-import time
 from homography import calc_homograph
 
 tf.disable_v2_behavior()
@@ -44,12 +43,9 @@ class DetectorAPI:
     def processFrame(self, image):
         # Expand dimensions since the trained_model expects images to have shape: [1, None, None, 3]
         image_np_expanded = np.expand_dims(image, axis=0)
-        # Actual detection.
-        start_time = time.time()
         (boxes, scores, classes, num) = self.sess.run(
             [self.detection_boxes, self.detection_scores, self.detection_classes, self.num_detections],
             feed_dict={self.image_tensor: image_np_expanded})
-        end_time = time.time()
 
         im_height, im_width, _ = image.shape
         boxes_list = [None for i in range(boxes.shape[1])]
