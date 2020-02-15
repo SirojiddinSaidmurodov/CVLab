@@ -69,7 +69,7 @@ if __name__ == "__main__":
 
     cap = cv2.VideoCapture("Your video")
     homographs = np.linalg.inv(calc_homograph())
-    scheme = cv2.imread("your scheme of room")
+    scheme = cv2.imread("your plan of room")
     track = []
 
     while True:
